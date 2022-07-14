@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace DataAccess.Cocnrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car {CarId=1,ColorId=1, DailyPrice=10000,ModelYear=2000,Description="dasdasd",BrandId=1},
+                new Car {Id=1,ColorId=1, DailyPrice=10000,ModelYear=2000,Description="dasdasd",BrandId=1},
             };
         }
 
@@ -27,14 +28,24 @@ namespace DataAccess.Cocnrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.SingleOrDefault(c=>c.CarId== car.CarId);
+            Car carToDelete = _cars.SingleOrDefault(c=>c.Id== car.Id);
 
             _cars.Remove(carToDelete);    
+        }
+
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> GetByBrandId(int brandId)
@@ -49,7 +60,7 @@ namespace DataAccess.Cocnrete.InMemory
 
         public void Update(Car car)
         {
-            Car CarToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+            Car CarToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
             CarToUpdate.DailyPrice=car.DailyPrice;
             CarToUpdate.ModelYear=car.ModelYear; 
             CarToUpdate.ColorId=car.ColorId;

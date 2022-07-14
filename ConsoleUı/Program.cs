@@ -12,7 +12,7 @@ namespace ConsoleUı // Note: actual namespace depends on the project name.
             CarManager carManager = new CarManager(new EfCarDal());
                 foreach (var car in carManager.GetAll())
                 {
-                    Console.WriteLine(car.CarId);
+                    Console.WriteLine(car.Id);
                 }; 
         }
     }

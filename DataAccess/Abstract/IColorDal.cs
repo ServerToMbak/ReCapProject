@@ -5,11 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Abstract
+namespace DataAccess.Abstract
 {
-    public interface ICarService
+    public  interface IColorDal : IEntityRepository<Color>
     {
-        List<Car> GetAll();
-        List<Car> GetAllByColorId(int id);
     }
 }
