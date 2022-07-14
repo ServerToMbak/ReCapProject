@@ -19,15 +19,32 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+             if(car.ModelYear>0 && car.Description.Length>2)
+             {
+                _carDal.Add(car);   
+             }
+            else
+            {
+                Console.WriteLine("Model Year can not be empty and Description con not be less than 2 words");
+            }
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();  
            
         }
 
+        public List<Car> GetAllByBrandId(int id)
+        {
+            return _carDal.GetAll(b => b.BrandId == id);
+        }
+
         public List<Car> GetAllByColorId(int id)
         {
-            return _carDal.GetAll(c => c.BrandId==id);
+            return _carDal.GetAll(c => c.ColorId==id);
         }
     }
 }
