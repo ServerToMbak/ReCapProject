@@ -27,7 +27,7 @@ namespace Business.Concrete
              }
             else
             {
-                Console.WriteLine("Model Year can not be empty and Description con not be less than 2 words");
+                Console.WriteLine("Daily price can not be empty and Description con not be less than 2 words");
             }
         }
 
