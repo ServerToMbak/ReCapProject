@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    internal interface IColorService
+    public interface IColorService
     {
         List<Color> GetAll();
     }

@@ -14,7 +14,7 @@ namespace Business.Concrete
         IBrandDal _BrandDal;
         public BrandManager(IBrandDal BrandDal)
         {
-           BrandDal= _BrandDal;
+          _BrandDal=  BrandDal;
         }
         public List<Brand> GetAll()
         {
