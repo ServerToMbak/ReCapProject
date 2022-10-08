@@ -9,7 +9,7 @@ namespace ConsoleUı // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new InMemoryCarDal());
                 foreach (var car in carManager.GetAll())
                 {
                     Console.WriteLine(car.Id);

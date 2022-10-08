@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOsIDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,22 +39,16 @@ namespace DataAccess.Cocnrete.InMemory
             throw new NotImplementedException();
         }
 
-        public List<Car> GetAll()
+      
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
         }
 
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Car> GetByBrandId(int brandId)
-        {
-           return   _cars.Where(p => p.BrandId == brandId).ToList();
-        }
 
-        public Car GetById()
+        public List<CarDetailDto> GetCarDetaiLS()
         {
             throw new NotImplementedException();
         }
