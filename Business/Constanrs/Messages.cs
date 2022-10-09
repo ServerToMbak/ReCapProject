@@ -13,5 +13,8 @@ namespace Business.Constanrs
         public static string CarCouldntAdded = "Araba Eklenemedi";
         public static string CarListed = "Arabalar Listelendi";
         public static string ColorAdded = "Renk Eklendi";
+        public static string RentalAdded = "Rental Added";
+
+        public static string RentalAddingError = "Rental Didn't Add";
     }
 }
