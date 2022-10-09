@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constanrs;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Cocnrete.InMemory;
 using Entities.Concrete;
@@ -19,37 +21,41 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
              if(car.DailyPrice>0 && car.Description.Length>2)
              {
                 _carDal.Add(car);   
+                return new SuccessResult(Messages.CarAdded);
              }
-            else
-            {
-                Console.WriteLine("Daily price can not be empty and Description con not be less than 2 words");
-            }
+           return new ErrorResult(Messages.CarCouldntAdded);
         }
 
-        public List<Car> GetAll()
+        public IResult delete(Car car)
         {
-            return _carDal.GetAll();  
+            _carDal.Delete(car);
+            return new SuccessResult("Silindi");
+        }
+
+        public IDataResult <List<Car>> GetAll()
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);  
            
         }
 
-        public List<Car> GetAllByBrandId(int id)
+        public IDataResult<List<Car>> GetAllByBrandId(int id)
         {
-            return _carDal.GetAll(b => b.BrandId == id);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(b => b.BrandId == id));
         }
 
-        public List<Car> GetAllByColorId(int id)
+        public IDataResult<List<Car>> GetAllByColorId(int id)
         {
-            return _carDal.GetAll(c => c.ColorId==id);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId==id));
         }
 
-        public Car getDetails(int id)
+        public IDataResult<Car> getDetails(int id)
         {
-            return _carDal.Get(c => c.Id == id);
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
         }
     }
 }
