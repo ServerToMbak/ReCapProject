@@ -1,4 +1,4 @@
-﻿using Business.Abstract;
+﻿    using Business.Abstract;
 using Business.Constanrs;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -31,9 +31,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
-        public IDataResult<Color> GetByColorId(int id)
+        public IDataResult<Color> GetById(int id)
         {
-            return new SuccessDataResult<Color>(_colorDal.Get(p=> p.ColorId==id));
+            return new SuccessDataResult<Color>(_colorDal.Get(p=> p.Id==id));
         }
 
       

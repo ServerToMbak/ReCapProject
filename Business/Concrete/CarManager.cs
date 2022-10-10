@@ -34,13 +34,17 @@ namespace Business.Concrete
         public IResult delete(Car car)
         {
             _carDal.Delete(car);
-            return new SuccessResult("Silindi");
+            return new SuccessResult();
         }
 
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);  
            
+        }
+        public IDataResult<Car> GetById(int id)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
         }
 
         public IDataResult<List<Car>> GetAllByBrandId(int id)
@@ -56,6 +60,12 @@ namespace Business.Concrete
         public IDataResult<Car> getDetails(int id)
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult();
         }
     }
 }

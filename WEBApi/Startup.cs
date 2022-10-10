@@ -1,3 +1,7 @@
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
+using DataAccess.Cocnrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WEBApi
+namespace WEBAPI
 {
     public class Startup
     {
@@ -28,6 +32,8 @@ namespace WEBApi
         {
 
             services.AddControllers();
+            services.AddSingleton<ICarService,CarManager>();
+            services.AddSingleton<ICarDal, EfCarDal>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WEBApi", Version = "v1" });

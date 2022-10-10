@@ -20,7 +20,7 @@ namespace DataAccess.Cocnrete.EntityFramework
             {
                 var result = from c in context.Cars
                              join b in context.Brands on c.BrandId equals b.BrandId
-                             join color in context.Colors on c.ColorId equals color.ColorId
+                             join color in context.Colors on c.ColorId equals color.Id
                                
 
                              select new CarDetailDto
