@@ -1,4 +1,4 @@
-﻿    using Business.Abstract;
+﻿using Business.Abstract;
 using Business.Constanrs;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -25,6 +25,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
+            
                 _carDal.Add(car);   
                 return new SuccessResult(Messages.CarAdded);
         }

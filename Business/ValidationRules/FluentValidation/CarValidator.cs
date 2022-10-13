@@ -14,6 +14,9 @@ namespace Business.ValidationRules.FluentValidation
         {
             RuleFor(c => c.Description).MinimumLength(2);
             RuleFor(c => c.DailyPrice).NotEmpty();
+            RuleFor(c => c.Description).Matches("[A-Z]");
         }
+
+
     }
 }

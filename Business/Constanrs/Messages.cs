@@ -16,5 +16,13 @@ namespace Business.Constanrs
         public static string RentalAdded = "Rental Added";
 
         public static string RentalAddingError = "Rental Didn't Add";
+
+        public static string CarImageLimitExceeded = "arabaya daha fazla resim ekleyemezsin";
+
+        public static string CarImageUpdated = "Araba resmi güncellendi ";
+
+        public static string CarImageDeleted = "Araba resmi silindi";
+
+        public static string CarImageAdded = "Araba resmi eklendi";
     }
 }
