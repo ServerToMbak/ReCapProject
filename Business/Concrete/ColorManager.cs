@@ -2,6 +2,7 @@
 using Business.Constanrs;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -24,6 +25,8 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
+
+            IResult result = BusinessRules.Run(DontGiveSameColor(color.ColorName));
             _colorDal.Add(color);
             return new SuccessResult(Messages.ColorAdded);
         }
@@ -38,6 +41,14 @@ namespace Business.Concrete
             return new SuccessDataResult<Color>(_colorDal.Get(p=> p.Id==id));
         }
 
-      
+        private IResult DontGiveSameColor(string colorName) 
+        {
+            var result=_colorDal.GetAll(p=>p.ColorName==colorName).Any();
+            if (result) 
+            {
+                return new ErrorResult(Messages.ColorNameAlreadyExists);
+            }
+            return new SuccessResult();
+        }
     }
 }

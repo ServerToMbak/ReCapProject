@@ -24,5 +24,7 @@ namespace Business.Constanrs
         public static string CarImageDeleted = "Araba resmi silindi";
 
         public static string CarImageAdded = "Araba resmi eklendi";
+
+        public static string ColorNameAlreadyExists = "Bu İsimde Bir Renk zaten Var!";
     }
 }
