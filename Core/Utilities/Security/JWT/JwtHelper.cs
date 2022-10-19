@@ -11,12 +11,12 @@ using System.Security.Claims;
 
 namespace Core.Utilities.Security.JWT
 {
-    public class JwtTokenHelper : ITokenHelper
+    public class JwtHelper : ITokenHelper
     {
         private DateTime _accessTokenExpiration;
         private IConfiguration _configuration { get; }
         private TokenOptions _tokenOptions;
-        public JwtTokenHelper(IConfiguration configuration)
+        public JwtHelper(IConfiguration configuration)
         {
             _configuration = configuration;
             _tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
