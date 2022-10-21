@@ -35,5 +35,6 @@ namespace Business.Constanrs
         public static string AccessTokenCreated = "Token Oluşturuldu";
 
         public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string ImagesPath = "wwwroot\\Uploads\\Images\\";
     }
 }

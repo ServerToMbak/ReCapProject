@@ -37,7 +37,7 @@ var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOpt
                 builder.Services.AddDependencyResolver(new ICoreModule[]
                {
                      new CoreModule()
-               }); ;
+               }); 
 
                     
 
