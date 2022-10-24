@@ -30,7 +30,7 @@ namespace Business.Concrete
                 return new SuccessResult(Messages.CarAdded);
         }
 
-        public IResult delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
             return new SuccessResult();
