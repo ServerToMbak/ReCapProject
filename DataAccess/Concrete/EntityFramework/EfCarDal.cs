@@ -21,6 +21,7 @@ namespace DataAccess.Cocnrete.EntityFramework
                 var result = from c in context.Cars
                              join b in context.Brands on c.BrandId equals b.BrandId
                              join color in context.Colors on c.ColorId equals color.Id
+                            
                                
 
                              select new CarDetailDto
@@ -29,6 +30,8 @@ namespace DataAccess.Cocnrete.EntityFramework
                                  CarName = c.Description,
                                  DailyPrice = c.DailyPrice,
                                  ColorName = color.ColorName,
+                                 Description= c.Description,
+                                 carImages = context.CarImages.Where(ci=>ci.CarId==c.Id).ToList(),
                                         
                              };
                 return result.ToList();

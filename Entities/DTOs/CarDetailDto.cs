@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace Entities.DTOsIDto
         public string BrandName { get; set; }
         public string ColorName { get; set; }
         public int DailyPrice { get; set; }
+        public string Description { get; set; }
+        public List<CarImage> carImages { get; set; }
+
 
     }
 }

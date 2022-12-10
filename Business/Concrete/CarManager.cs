@@ -6,6 +6,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Cocnrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOsIDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);  
-           
+          
         }
         public IDataResult<Car> GetById(int id)
         {
@@ -53,12 +54,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAllByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId==id));
+           return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId==id));
         }
 
-        public IDataResult<Car> GetDetails(int id)
+        public IDataResult<List<CarDetailDto>> GetDetails()
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetaiLS());
         }
 
         public IResult Update(Car car)
