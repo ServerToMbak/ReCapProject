@@ -1,7 +1,6 @@
 ﻿using System;
 using Business.Concrete;
 using DataAccess.Cocnrete.EntityFramework;
-using DataAccess.Cocnrete.InMemory;
 using Entities.Concrete;
 
 namespace ConsoleUı // Note: actual namespace depends on the project name.
